@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="currency-history">
+  <h1>History currency conversions</h1>
+  <div class="history-conversions">
+    <div *ngFor="let currencyConversion of currencyConversions| async; let i = index">
+      {{i + 1}}.
+      {{currencyConversion.from.value | currency: currencyConversion.from.label + ' '}}
+      =
+      {{currencyConversion.to.value | currency: currencyConversion.to.label + ' '}}
+    </div>
+  </div>
+</div>

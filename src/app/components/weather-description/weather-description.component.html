@@ -1,8 +1,0 @@
-<div class="weather-description">
-  <h1>Weather in:</h1>
-  <ol>
-    <li *ngFor="let weather of weathers$| async">
-      <h1>{{weather.city}} {{weather.temperature > 0 ? '+' : ''}}{{weather.temperature}}°; {{weather.description}}</h1>
-    </li>
-  </ol>
-</div>

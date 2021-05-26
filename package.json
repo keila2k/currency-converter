@@ -1,5 +1,5 @@
 {
-  "name": "weather",
+  "name": "currency",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

@@ -8,24 +8,32 @@ import {FormsModule} from '@angular/forms';
 import {metaReducers, reducers} from './reducers';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import {WeatherModule} from './weather/weather.module';
 import {HttpClientModule} from '@angular/common/http';
-import { WeatherDescriptionComponent } from './components/weather-description/weather-description.component';
 import {FlexModule} from '@angular/flex-layout';
+import {AppRoutingModule} from './app-routing.module';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {CurrencyModule} from './currency/currency.module';
+import {CurrencyConversionHistoryComponent} from './components/currency-conversion-history/currency-conversion-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherDescriptionComponent],
+    CurrencyConversionHistoryComponent,
+    NavbarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    WeatherModule,
+    CurrencyModule,
     HttpClientModule,
-    FlexModule
+    FlexModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

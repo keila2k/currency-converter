@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from '@ngrx/store';
-import {reducer, weatherFeatureKey} from './store/reducer/weather.reducer';
-import {WeatherListComponent} from '../components/weather-list/weather-list.component';
+import {reducer, currencyFeatureKey} from './store/reducer/currencyReducer';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -10,15 +9,16 @@ import {MatInputModule} from '@angular/material/input';
 import {FlexModule} from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {CurrencyConverterComponent} from '../components/currency-converter/currency-converter.component';
 
 @NgModule({
-  declarations: [WeatherListComponent],
+  declarations: [CurrencyConverterComponent],
   exports: [
-    WeatherListComponent
+    CurrencyConverterComponent
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature(weatherFeatureKey, reducer),
+    StoreModule.forFeature(currencyFeatureKey, reducer),
     MatGridListModule,
     MatSelectModule,
     ReactiveFormsModule,
@@ -28,5 +28,5 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
   ]
 })
-export class WeatherModule {
+export class CurrencyModule {
 }

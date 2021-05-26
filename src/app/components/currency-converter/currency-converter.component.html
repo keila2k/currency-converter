@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h1>Currency converter</h1>
+  <div *ngIf="currencyForm">
+    <form [formGroup]="currencyForm" fxLayout="row" fxLayoutAlign="center center"
+          fxLayoutGap="20px">
+      <mat-form-field>
+        <input (change)="onNewCurrencyConversion()" matInput formControlName="value" placeholder="Amount">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select (selectionChange)="onNewCurrencyConversion()" formControlName="from" placeholder="From">
+          <mat-option *ngFor="let currencyOption of currencyOpts"
+                      [value]="currencyOption">{{currencyOption.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select (selectionChange)="onNewCurrencyConversion()" formControlName="to" placeholder="To">
+          <mat-option *ngFor="let currencyOption of currencyOpts"
+                      [value]="currencyOption">{{currencyOption.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="result" *ngIf="currencyForm?.valid">
+    <span>{{currencyForm.value.value | currency: currencyForm.value.from.label + ' '}}
+      =
+      {{getToValue(currencyForm.value.from.value, currencyForm.value.to.value, currencyForm.value.value) | currency: currencyForm.value.to.label + ' '}}
+    </span>
+  </div>
+</div>
